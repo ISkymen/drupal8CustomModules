@@ -1,0 +1,5 @@
+name: jdf
+type: module
+description: Json Data Field module
+core: 8.x
+package: Skymen

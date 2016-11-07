@@ -1,0 +1,5 @@
+name: Access by Field
+type: module
+description: Module for access control to node by special field
+core: 8.x
+package: Custom

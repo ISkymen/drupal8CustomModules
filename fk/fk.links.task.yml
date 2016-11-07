@@ -1,0 +1,84 @@
+# Fk_product routing definition
+fk_product.settings_tab:
+  route_name: fk_product.settings
+  title: 'Settings'
+  base_route: fk_product.settings
+entity.fk_product.canonical:
+  route_name: entity.fk_product.canonical
+  base_route: entity.fk_product.canonical
+  title: 'View'
+
+entity.fk_product.edit_form:
+  route_name: entity.fk_product.edit_form
+  base_route: entity.fk_product.canonical
+  title: Edit
+
+entity.fk_product.delete_form:
+  route_name:  entity.fk_product.delete_form
+  base_route:  entity.fk_product.canonical
+  title: Delete
+  weight: 10
+
+# Fk_purchase routing definition
+fk_purchase.settings_tab:
+  route_name: fk_purchase.settings
+  title: 'Settings'
+  base_route: fk_purchase.settings
+entity.fk_purchase.canonical:
+  route_name: entity.fk_purchase.canonical
+  base_route: entity.fk_purchase.canonical
+  title: 'View'
+
+entity.fk_purchase.edit_form:
+  route_name: entity.fk_purchase.edit_form
+  base_route: entity.fk_purchase.canonical
+  title: Edit
+
+entity.fk_purchase.delete_form:
+  route_name:  entity.fk_purchase.delete_form
+  base_route:  entity.fk_purchase.canonical
+  title: Delete
+  weight: 10
+
+# Fk_market routing definition
+fk_market.settings_tab:
+  route_name: fk_market.settings
+  title: 'Settings'
+  base_route: fk_market.settings
+entity.fk_market.canonical:
+  route_name: entity.fk_market.canonical
+  base_route: entity.fk_market.canonical
+  title: 'View'
+
+entity.fk_market.edit_form:
+  route_name: entity.fk_market.edit_form
+  base_route: entity.fk_market.canonical
+  title: Edit
+
+entity.fk_market.delete_form:
+  route_name:  entity.fk_market.delete_form
+  base_route:  entity.fk_market.canonical
+  title: Delete
+  weight: 10
+
+# Fk_prodinfo routing definition
+fk_prodinfo.settings_tab:
+  route_name: fk_prodinfo.settings
+  title: 'Settings'
+  base_route: fk_prodinfo.settings
+entity.fk_prodinfo.canonical:
+  route_name: entity.fk_prodinfo.canonical
+  base_route: entity.fk_prodinfo.canonical
+  title: 'View'
+
+entity.fk_prodinfo.edit_form:
+  route_name: entity.fk_prodinfo.edit_form
+  base_route: entity.fk_prodinfo.canonical
+  title: Edit
+
+entity.fk_prodinfo.delete_form:
+  route_name:  entity.fk_prodinfo.delete_form
+  base_route:  entity.fk_prodinfo.canonical
+  title: Delete
+  weight: 10
+

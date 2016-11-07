@@ -1,0 +1,173 @@
+<?php
+
+/**
+ * @file
+ * Contains abf.module..
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\node\NodeInterface;
+
+/**
+ * Implements hook_help().
+ */
+function abf_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the abf module.
+    case 'help.page.abf':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Module for access control to node by special field') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+
+define('ABF_ACCESS_REALM', 'abf_access');
+define('ABF_ACCESS_PUBLIC', 2);
+define('ABF_ACCESS_WORK', 3);
+define('ABF_ACCESS_PRIVATE', 4);
+
+/**
+ * Используем hook_node_grants().
+ *
+ * Данный хук срабатывает при просмотре содержимого и выдаёт пользователю
+ * соответствующий уровень доступа к содержимому.
+ *
+ * $account - информация о пользователе, который обратился к ноде.
+ * $op - операция которая выполняется (view, edit, delete).
+ */
+function abf_node_grants($account, $op) {
+  // Нас интересует лишь просмотр содержимого. Поэтому права мы выдаем именно
+  // в момент просмотра содержимого. Редактирование и удаление будет ограничено
+  // системными правами (что в админке друпала).
+   if ($op == 'view') {
+
+  $roles = $account->getRoles();
+
+
+
+         foreach($roles as $key) {
+
+    // Если отмечено "Для своих".
+
+    switch ($key) {
+
+            case "administrator":
+
+      $grants[ABF_ACCESS_REALM] = array(
+        ABF_ACCESS_PRIVATE,
+        ABF_ACCESS_WORK,
+        ABF_ACCESS_PUBLIC,
+      );
+            break;
+
+        case "authenticated":
+
+      $grants[ABF_ACCESS_REALM] = array(
+      ABF_ACCESS_WORK,
+      ABF_ACCESS_PUBLIC,
+
+      );
+            break;
+        case "anonymous":
+
+      $grants[ABF_ACCESS_REALM] = array(
+        ABF_ACCESS_PUBLIC,
+      );
+            break;
+
+
+
+
+    }
+              }
+
+
+
+
+    return $grants;
+  }
+
+
+
+
+}
+
+/**
+ * Используем hook_node_access_records().
+ *
+ * В данном хуке определяется, какой уровень доступа необходим для ноды.
+ * Данная запись делется при редактировании\добавлении нового материала.
+ *
+ * Если у вас уже есть содержимое, которому нужно "пересобрать" права, то
+ * воспользуйтесь фукнцией node_access_rebuild() или в админке:
+ * admin/reports/status/rebuild
+ */
+function abf_node_access_records($node) {
+
+  // Мы задаем права доступа только для нашего типа содержимого 'Article'.
+  if ($node->bundle() == 'article') {
+    // Получаем значения поля "Для своих".
+    //$access = $node->getTranslation($node->language())->get('field_access');
+   // $access->getValue();
+
+  $field_access = $node->get('field_access')->getValue();
+   foreach($field_access as $array) {
+       foreach($array as $key => $target_id) {
+            $result[] = $target_id;
+        }
+   }
+
+
+       foreach($result as $key) {
+
+    // Если отмечено "Для своих".
+
+    switch ($key) {
+        case 62:
+
+            $grants[] = array(
+                'realm' => ABF_ACCESS_REALM,
+                'gid' => ABF_ACCESS_PRIVATE,
+                'grant_view' => 1,
+                'grant_update' => 0,
+                'grant_delete' => 0,
+                'priority' => 0,
+            );
+            break;
+        case 63:
+
+            $grants[] = array(
+                'realm' => ABF_ACCESS_REALM,
+                'gid' => ABF_ACCESS_WORK,
+                'grant_view' => 1,
+                'grant_update' => 0,
+                'grant_delete' => 0,
+                'priority' => 0,
+            );
+            break;
+        case 64:
+
+            $grants[] = array(
+                'realm' => ABF_ACCESS_REALM,
+                'gid' => ABF_ACCESS_PUBLIC,
+                'grant_view' => 1,
+                'grant_update' => 0,
+                'grant_delete' => 0,
+                'priority' => 0,
+              );
+            break;
+
+
+
+
+    }
+              }
+  return $grants;
+  }
+
+}

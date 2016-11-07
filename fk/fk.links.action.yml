@@ -1,0 +1,20 @@
+entity.fk_product.add_form:
+  route_name: entity.fk_product.add_form
+  title: 'Add Fk_product'
+  appears_on:
+    - entity.fk_product.collection
+entity.fk_purchase.add_form:
+  route_name: entity.fk_purchase.add_form
+  title: 'Add Fk_purchase'
+  appears_on:
+    - entity.fk_purchase.collection
+entity.fk_market.add_form:
+  route_name: entity.fk_market.add_form
+  title: 'Add Fk_market'
+  appears_on:
+    - entity.fk_market.collection
+entity.fk_prodinfo.add_form:
+  route_name: entity.fk_prodinfo.add_form
+  title: 'Add Fk_prodinfo'
+  appears_on:
+    - entity.fk_prodinfo.collection

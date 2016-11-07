@@ -1,0 +1,44 @@
+<?php
+
+/**
+ * @file
+ * Contains ogtag.module..
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+
+/**
+ * Implements hook_help().
+ */
+function ogtag_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the ogtag module.
+    case 'help.page.ogtag':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Module for &quot;og&quot; meta tag') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+
+/**
+ * Implements hook_entity_view().
+ */
+
+function ogtag_entity_view(array &$build, $entity, $display, $view_mode, $langcode) {
+  if ($entity->bundle() == 'review') {
+    $metatag = [
+      '#tag' => 'meta',
+      '#attributes' => [
+        'property' => 'og:image',
+        'content' => file_create_url($entity->field_review_image->entity->getFileUri()),
+      ],
+    ];
+    $build['#attached']['html_head'][] = [$metatag, 'metatag'];
+  }
+}

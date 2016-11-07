@@ -1,0 +1,49 @@
+<?php
+
+/**
+ * @file
+ * Contains jdf.module..
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Field\BaseFieldDefinition;
+
+/**
+ * Implements hook_help().
+ */
+function jdf_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the jdf module.
+    case 'help.page.jdf':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Json Data Field module') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/*   function jdf_entity_bundle_field_info(\Drupal\Core\Entity\EntityTypeInterface $entity_type, $bundle, array $base_field_definitions) {
+  // Add a property only to nodes of the 'article' bundle.
+//  echo "test";
+  if ($entity_type->id() == 'fk_market') {
+
+
+  $entity_manager = \Drupal::entityManager();
+  $definition = $entity_manager->getFieldStorageDefinitions('fk_market')['latitude'];
+  $entity_manager->onFieldStorageDefinitionCreate($definition);
+    $definition = $entity_manager->getFieldStorageDefinitions('fk_market')['longitude'];
+  $entity_manager->onFieldStorageDefinitionCreate($definition);
+
+
+  \Drupal::entityManager()->clearCachedDefinitions();
+  \Drupal::service('entity.definition_update_manager')->applyUpdates();
+
+
+    return $fields;
+
+
+
+  }
+}*/

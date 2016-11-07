@@ -1,0 +1,52 @@
+# Fk_product menu items definition
+entity.fk_product.collection:
+  title: 'Fk_product list'
+  route_name: entity.fk_product.collection
+  description: 'List Fk_product entities'
+  parent: system.admin_structure
+  weight: 100
+
+fk_product.admin.structure.settings:
+  title: Fk_product settings
+  description: 'Configure Fk_product entities'
+  route_name: fk_product.settings
+  parent: system.admin_structure
+# Fk_purchase menu items definition
+entity.fk_purchase.collection:
+  title: 'Fk_purchase list'
+  route_name: entity.fk_purchase.collection
+  description: 'List Fk_purchase entities'
+  parent: system.admin_structure
+  weight: 100
+
+fk_purchase.admin.structure.settings:
+  title: Fk_purchase settings
+  description: 'Configure Fk_purchase entities'
+  route_name: fk_purchase.settings
+  parent: system.admin_structure
+# Fk_market menu items definition
+entity.fk_market.collection:
+  title: 'Fk_market list'
+  route_name: entity.fk_market.collection
+  description: 'List Fk_market entities'
+  parent: system.admin_structure
+  weight: 100
+
+fk_market.admin.structure.settings:
+  title: Fk_market settings
+  description: 'Configure Fk_market entities'
+  route_name: fk_market.settings
+  parent: system.admin_structure
+# Fk_prodinfo menu items definition
+entity.fk_prodinfo.collection:
+  title: 'Fk_prodinfo list'
+  route_name: entity.fk_prodinfo.collection
+  description: 'List Fk_prodinfo entities'
+  parent: system.admin_structure
+  weight: 100
+
+fk_prodinfo.admin.structure.settings:
+  title: Fk_prodinfo settings
+  description: 'Configure Fk_prodinfo entities'
+  route_name: fk_prodinfo.settings
+  parent: system.admin_structure

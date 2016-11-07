@@ -1,0 +1,76 @@
+add fk_product entities:
+  title: 'Create new Fk_product entities'
+
+administer fk_product entities:
+  title: 'Administer Fk_product entities'
+  description: 'Allow to access the administration form to configure Fk_product entities.'
+  restrict access: true
+
+delete fk_product entities:
+  title: 'Delete Fk_product entities'
+
+edit fk_product entities:
+  title: 'Edit Fk_product entities'
+
+view published fk_product entities:
+  title: 'View published Fk_product entities'
+
+view unpublished fk_product entities:
+  title: 'View unpublished Fk_product entities'
+add fk_purchase entities:
+  title: 'Create new Fk_purchase entities'
+
+administer fk_purchase entities:
+  title: 'Administer Fk_purchase entities'
+  description: 'Allow to access the administration form to configure Fk_purchase entities.'
+  restrict access: true
+
+delete fk_purchase entities:
+  title: 'Delete Fk_purchase entities'
+
+edit fk_purchase entities:
+  title: 'Edit Fk_purchase entities'
+
+view published fk_purchase entities:
+  title: 'View published Fk_purchase entities'
+
+view unpublished fk_purchase entities:
+  title: 'View unpublished Fk_purchase entities'
+add fk_market entities:
+  title: 'Create new Fk_market entities'
+
+administer fk_market entities:
+  title: 'Administer Fk_market entities'
+  description: 'Allow to access the administration form to configure Fk_market entities.'
+  restrict access: true
+
+delete fk_market entities:
+  title: 'Delete Fk_market entities'
+
+edit fk_market entities:
+  title: 'Edit Fk_market entities'
+
+view published fk_market entities:
+  title: 'View published Fk_market entities'
+
+view unpublished fk_market entities:
+  title: 'View unpublished Fk_market entities'
+add fk_prodinfo entities:
+  title: 'Create new Fk_prodinfo entities'
+
+administer fk_prodinfo entities:
+  title: 'Administer Fk_prodinfo entities'
+  description: 'Allow to access the administration form to configure Fk_prodinfo entities.'
+  restrict access: true
+
+delete fk_prodinfo entities:
+  title: 'Delete Fk_prodinfo entities'
+
+edit fk_prodinfo entities:
+  title: 'Edit Fk_prodinfo entities'
+
+view published fk_prodinfo entities:
+  title: 'View published Fk_prodinfo entities'
+
+view unpublished fk_prodinfo entities:
+  title: 'View unpublished Fk_prodinfo entities'

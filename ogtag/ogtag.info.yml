@@ -1,0 +1,5 @@
+name: ogtag
+type: module
+description: Module for "og" meta tag
+core: 8.x
+package: Custom

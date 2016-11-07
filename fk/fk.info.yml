@@ -1,0 +1,8 @@
+name: fk
+type: module
+description: Module for FoodKeeper.org
+core: 8.x
+package: FoodKeeper
+dependencies:
+  - datetime
+  - image

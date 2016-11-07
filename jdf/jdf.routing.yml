@@ -1,0 +1,7 @@
+jdf.fk_Form:
+  path: '/form'
+  defaults:
+    _title: 'Favorite Fruit'
+    _form: '\Drupal\jdf\Form\fk_Form'
+  requirements:
+    _permission: 'access content'
